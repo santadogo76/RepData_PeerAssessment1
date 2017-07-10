@@ -2,7 +2,8 @@
 ### Domingo Udofia
 ### 10 July 2017
 Github repository with RMarkdown source code: https://github.com/santadogo76/RepData_PeerAssessment1.git
-*=========================================================================================================
+
+==========================================================
 
 
 ## Loading and preprocessing the data
