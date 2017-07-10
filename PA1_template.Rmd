@@ -1,7 +1,7 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
+### Reproducible Research: Peer Assessment 1 of week 2
+### Domingo Udofia
+### 10 July 2017
+Github repository with RMarkdown source code: 
     keep_md: true
 ---
 
