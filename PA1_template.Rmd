@@ -1,9 +1,8 @@
 ### Reproducible Research: Peer Assessment 1 of week 2
 ### Domingo Udofia
 ### 10 July 2017
-Github repository with RMarkdown source code: 
-    keep_md: true
----
+Github repository with RMarkdown source code: https://github.com/santadogo76/RepData_PeerAssessment1.git
+*=========================================================================================================
 
 
 ## Loading and preprocessing the data
