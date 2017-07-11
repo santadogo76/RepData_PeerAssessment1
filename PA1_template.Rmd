@@ -41,8 +41,8 @@ library(ggplot2) # we shall use ggplot2 for plotting figures
 ```
 
 ## Loading and preprocessing the data
-# Set Global Echo = On
 
+# Set Global Echo = On
 # Load data
 if (!file.exists("activity.csv") )
     {
