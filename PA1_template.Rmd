@@ -42,18 +42,24 @@ library(ggplot2) # we shall use ggplot2 for plotting figures
 
 ## Loading and preprocessing the data
 
-# Set Global Echo = On
-# Load data
-if (!file.exists("activity.csv") )
-    {
-     dlurl <- 'http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip'  
-     download.file(dlurl,destfile='repdata%2Fdata%2Factivity.zip',mode='wb')  
-     unzip('repdata%2Fdata%2Factivity.zip')
-    }
+```{r}
+setwd("L:/R/Reproducible Research")
+data <- read.csv("./RepData_PeerAssessment1/activity/activity.csv", header = TRUE, sep = ",")
+index <- complete.cases(data)
+data1 <- data[index,]
+```
 
-# Read data
-data <- read.csv("activity.csv")  
+The row data is like :
 
+```{r}
+head(data)
+```
+
+The processed data :
+
+```{r}
+head(data1)
+```
 
 ## What is mean total number of steps taken per day?
 
