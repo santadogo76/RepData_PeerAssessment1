@@ -127,11 +127,31 @@ head(result)
 The "mean" variable represents the mean value of total number of steps and the "median" variable represents the median value of the total number of steps. Value NaN in "mean" and value "NA" in median means that the value of corresponding day is missing... 
 
 
-
-
-
 ## What is the average daily activity pattern?
+In order to distinguish the different days and get an obvious comparation, I plot the data within the same picture and use different colors:
 
+```{r}
+interval <- unique(data1$interval)
+stepmean <- as.numeric()
+for (i in 1:length(interval))
+{
+    stepmean[i] <- mean(data1$steps[which(data1$interval == interval[i])])
+}
+
+stepmean <- data.frame(stepmean,interval)
+stepmean$stepmean[which(stepmean$stepmean == "NaN")] <- 0
+
+p <- ggplot(data = stepmean,aes(x = interval,y = stepmean)) + geom_line() 
+p + geom_point(size = stepmean) + stat_smooth() + scale_color_manual(values = c("red","blue"))
+
+```
+
+
+And the 5-minute interval that on average across all the days in the dataset, contains the maximum number of steps is the 615th interval on 2012-11-27:
+
+```{r}
+data2[which(data2$step == max(data2$step)),]
+```
 
 
 ## Imputing missing values
