@@ -62,6 +62,71 @@ head(data1)
 ```
 
 ## What is mean total number of steps taken per day?
+```{r, echo = FALSE}
+
+data2 <- data1[-which(data1$steps==0),]
+date <- unique(data$date)
+stepsum <- as.numeric()
+Mean <- as.numeric()
+Median <- as.numeric()
+for (i in 1:length(date))
+{
+    stepsum[i] <- sum(data1$steps[which(data1$date == date[i])])
+    Mean[i] <- mean(data1$steps[which(data1$date == date[i])])
+}
+```
+
+1. Draw a figure of histogram of the total number of steps taken each day:
+
+```{r}
+stepsum <- as.numeric()
+for (i in 1:length(date))
+{
+    stepsum[i] <- sum(data1$steps[which(data1$date == date[i])])
+}
+month <- as.POSIXlt(date)$mon + 1
+day <- as.POSIXlt(date)$mday
+stepsum <- data.frame(stepsum,date,month,day)
+library(ggplot2)
+library(plyr)
+
+```
+
+So you can see the figure here as follows:
+
+```{r}
+mm <- ddply(stepsum, "date",summarise, stepsum = sum(stepsum))
+ggplot(data=mm,aes(x = factor(day),fill = factor(month), y = stepsum)) + geom_bar(stat = "identity",alpha=0.5)
+```
+ 
+ Now, the figure above is the statictis of total number of the steps every day. Color "Red" represent Month Oct.and "blue" stands for Nov. In this cumulative distribution figure, we can clearly the difference between two months and the distribution of the same month.
+ 
+ 2. Calculate and report the mean and median total number of steps taken per day
+
+```{r}
+Mean <- as.numeric()
+Median <- as.numeric()
+for (i in 1:length(date))
+{
+    Mean[i] <- mean(data1$steps[which(data1$date == date[i])])
+}
+data2 <- data1[-which(data1$steps==0),]
+for (i in 1:length(date))
+{
+    Median[i] <- median(data2$steps[which(data2$date == date[i])])
+}
+```
+
+Some part of the result is as follows:
+
+```{r, echo=FALSE}
+result <- data.frame(mean = Mean, median = Median, Date = date)
+head(result)
+```
+
+The "mean" variable represents the mean value of total number of steps and the "median" variable represents the median value of the total number of steps. Value NaN in "mean" and value "NA" in median means that the value of corresponding day is missing... 
+
+
 
 
 
